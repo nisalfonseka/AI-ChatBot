@@ -68,24 +68,24 @@ function Chat() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#7247e9] via-[#da0e7f] to-[#7247e9] opacity-80 animate-gradient">
           <div className="absolute inset-0 backdrop-blur-xl"></div>
         </div>
-
+  
         {/* Content Container */}
         <div className="relative z-10 flex items-center justify-center w-full gap-12 px-12">
-          {/* Right Section: Logo */}
-          <div className="flex-shrink-0">
+          {/* Right Section: Logo with Slide In Animation */}
+          <div className="flex-shrink-0 animate-slide-in-left">
             <img src="src/assets/chatty.png" alt="Chat AI Logo" className="w-96 h-96" />
           </div>
-
-          {/* Left Section: Welcome Message */}
-          <div className="text-left flex flex-col items-start">
+  
+          {/* Left Section: Welcome Message with Fade In */}
+          <div className="text-left flex flex-col items-start animate-fade-in">
             <h1 className="text-4xl font-bold text-white mb-4">Welcome to Chatty AI!</h1>
             <p className="text-gray-200 mb-8">
               Click below to start chatting with our AI assistant.
             </p>
-
-            {/* Sliding Get Started Button */}
+  
+            {/* Sliding Get Started Button with Hover Animation */}
             <button
-              className="relative px-6 py-3 text-white font-semibold rounded-md bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 group overflow-hidden"
+              className="relative px-6 py-3 text-white font-semibold rounded-md bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 group overflow-hidden transition-transform duration-300"
               onClick={() => {
                 setIsLoading(true);
                 setTimeout(() => setShowChat(true), 2000); // 2-second delay for loading spinner animation
@@ -123,18 +123,12 @@ function Chat() {
         <div ref={chatContainerRef} className="flex-1 overflow-y-auto mb-4 rounded-xl bg-white shadow-lg p-6 hide-scrollbar">
           {chatHistory.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center p-6">
-            <div className="bg-purple-50 rounded-xl p-8 max-w-2xl shadow-xl">
               <h2 className="text-3xl font-semibold text-purple-600 mb-4">
                 <span className={`typing-animation ${showMessage ? "show" : ""}`}>
                   Welcome to Chatty AI!
                 </span>
               </h2>
-              <p className="text-gray-600 text-sm">
-                <span className={`typing-animation ${showMessage ? "show" : ""}`}>
-                  Say Hi
-                </span>
-              </p>
-            </div>
+            
           </div>
           ) : (
             <>
