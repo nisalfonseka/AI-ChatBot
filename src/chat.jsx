@@ -73,7 +73,7 @@ function Chat() {
         <div className="relative z-10 flex items-center justify-center w-full gap-12 px-12">
           {/* Right Section: Logo with Slide In Animation */}
           <div className="flex-shrink-0 animate-slide-in-left">
-            <img src="public/chatty.png" alt="Chat AI Logo" className="w-96 h-96" />
+            <img src="/chatty.png" alt="Chat AI Logo" className="w-96 h-96" />
           </div>
   
           {/* Left Section: Welcome Message with Fade In */}
@@ -115,7 +115,7 @@ function Chat() {
       <div className="h-full max-w-4xl mx-auto flex flex-col p-3">
         {/* Fixed Header */}
         <header className="flex items-center justify-center py-4">
-    <img src="public/chatty.png" alt="Chat AI Logo" className="w-12 h-12 mr-2" />
+    <img src="/chatty.png" alt="Chat AI Logo" className="w-12 h-12 mr-2" />
     <h1 className="text-4xl font-bold text-white">Chatty AI</h1>
 </header>
 
