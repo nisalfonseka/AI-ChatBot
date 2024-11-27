@@ -44,3 +44,33 @@
   }
 }
 
+/* Typing animation */
+.typing-animation {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  animation: typing 2s steps(30) 1s forwards, blink-caret 0.75s step-end infinite;
+}
+
+/* Keyframes for typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Keyframes for blinking cursor effect */
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* This class will be added after delay */
+.show {
+  width: 100%;
+}

@@ -10,6 +10,8 @@ function Chat() {
   const [generatingAnswer, setGeneratingAnswer] = useState(false);
   const [showChat, setShowChat] = useState(false); // State to control showing chat interface
   const [isLoading, setIsLoading] = useState(false); // State for the loading spinner
+  const [showMessage, setShowMessage] = useState(false);
+  const [message, setMessage] = useState("");
 
   const chatContainerRef = useRef(null);
 
@@ -50,6 +52,13 @@ function Chat() {
     }
     setGeneratingAnswer(false);
   }
+
+  useEffect(() => {
+    if (!showMessage) {
+      setTimeout(() => setShowMessage(true), 100); // Delay to start typing animation after component load
+    }
+  }, [showMessage]);
+
 
   // Show "Get Started" screen
   if (!showChat) {
@@ -114,13 +123,19 @@ function Chat() {
         <div ref={chatContainerRef} className="flex-1 overflow-y-auto mb-4 rounded-xl bg-white shadow-lg p-6 hide-scrollbar">
           {chatHistory.length === 0 ? (
             <div className="h-full flex flex-col items-center justify-center text-center p-6">
-              <div className="bg-purple-50 rounded-xl p-8 max-w-2xl shadow-xl">
-                <h2 className="text-3xl font-semibold text-purple-600 mb-4">Welcome to Chatty AI!</h2>
-                <p className="text-gray-600 text-sm">
+            <div className="bg-purple-50 rounded-xl p-8 max-w-2xl shadow-xl">
+              <h2 className="text-3xl font-semibold text-purple-600 mb-4">
+                <span className={`typing-animation ${showMessage ? "show" : ""}`}>
+                  Welcome to Chatty AI!
+                </span>
+              </h2>
+              <p className="text-gray-600 text-sm">
+                <span className={`typing-animation ${showMessage ? "show" : ""}`}>
                   Say Hi
-                </p>
-              </div>
+                </span>
+              </p>
             </div>
+          </div>
           ) : (
             <>
               {chatHistory.map((chat, index) => (
