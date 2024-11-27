@@ -73,7 +73,7 @@ function Chat() {
         <div className="relative z-10 flex items-center justify-center w-full gap-12 px-12">
           {/* Right Section: Logo with Slide In Animation */}
           <div className="flex-shrink-0 animate-slide-in-left">
-            <img src="/AI-ChatBot/assets/chatty.png" alt="Chat AI Logo" className="w-96 h-96" />
+            <img src="src/assets/chatty.png" alt="Chat AI Logo" className="w-96 h-96" />
           </div>
   
           {/* Left Section: Welcome Message with Fade In */}
