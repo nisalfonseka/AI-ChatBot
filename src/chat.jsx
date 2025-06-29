@@ -33,17 +33,26 @@ function Chat() {
     setChatHistory((prev) => [...prev, { type: "question", content: currentQuestion }]);
 
     try {
-      const response = await axios({
-        url: `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${
-          import.meta.env.VITE_API_GENERATIVE_LANGUAGE_CLIENT
-        }`,
-        method: "post",
-        data: {
-          contents: [{ parts: [{ text: question }] }],
+      const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
+        method: "POST",
+        headers: {
+          "Authorization": "Bearer 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",
+          "Content-Type": "application/json",
+          // Optionally add Referer and X-Title headers here
         },
+        body: JSON.stringify({
+          model: "mistralai/mistral-small-3.2-24b-instruct",
+          messages: [
+            {
+              role: "user",
+              content: [{ type: "text", text: currentQuestion }]
+            }
+          ]
+        }),
       });
 
-      const aiResponse = response["data"]["candidates"][0]["content"]["parts"][0]["text"];
+      const data = await response.json();
+      const aiResponse = data.choices?.[0]?.message?.content || "Sorry - No response from AI.";
       setChatHistory((prev) => [...prev, { type: "answer", content: aiResponse }]);
       setAnswer(aiResponse);
     } catch (error) {
