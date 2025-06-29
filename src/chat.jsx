@@ -36,9 +36,8 @@ function Chat() {
       const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
         method: "POST",
         headers: {
-          "Authorization": "Bearer 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",
+          "Authorization": `Bearer ${import.meta.env.VITE_OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
-          // Optionally add Referer and X-Title headers here
         },
         body: JSON.stringify({
           model: "mistralai/mistral-small-3.2-24b-instruct",
