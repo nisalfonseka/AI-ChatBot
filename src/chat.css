@@ -26,23 +26,7 @@
 }
 
 /* Add to your main CSS file or in a style block */
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
-  }
-  25% {
-    background-position: 50% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  75% {
-    background-position: 50% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
 
 /* Typing animation */
 .typing-animation {
@@ -76,23 +60,6 @@
 }
 
 /* Gradient Background Animation */
-@keyframes gradientAnimation {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-gradient {
-  background-size: 400% 400%;
-  animation: gradientAnimation 10s ease infinite;
-}
-
 /* Fade-in Animation for Text */
 @keyframes fadeIn {
   0% {

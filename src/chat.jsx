@@ -65,9 +65,9 @@ function Chat() {
     return (
       <div className="fixed inset-0 flex h-screen w-full relative overflow-hidden">
         {/* Animated Gradient Background with Modern Blur */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#7247e9] via-[#da0e7f] to-[#7247e9] opacity-80 animate-gradient">
-          <div className="absolute inset-0 backdrop-blur-xl"></div>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#7247e9] via-[#da0e7f] to-[#9b4eff] opacity-90 animate-gradient">
+  <div className="absolute inset-0 backdrop-blur-2xl"></div>
+</div>
   
         {/* Content Container */}
         <div className="relative z-10 flex items-center justify-center w-full gap-12 px-12">
