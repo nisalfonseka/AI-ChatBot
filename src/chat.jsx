@@ -74,44 +74,44 @@ function Chat() {
       <div className="fixed inset-0 flex h-screen w-full relative overflow-hidden">
         {/* Animated Gradient Background with Modern Blur */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#7247e9] via-[#da0e7f] to-[#9b4eff] opacity-90 animate-gradient">
-  <div className="absolute inset-0 backdrop-blur-2xl"></div>
-</div>
-  
+          <div className="absolute inset-0 backdrop-blur-2xl"></div>
+        </div>
+
         {/* Content Container */}
-        <div className="relative z-10 flex items-center justify-center w-full gap-12 px-12">
-          {/* Right Section: Logo with Slide In Animation */}
-          <div className="flex-shrink-0 animate-slide-in-left">
-            <img src="/chatty.png" alt="Chat AI Logo" className="w-96 h-96" />
-          </div>
-  
-          {/* Left Section: Welcome Message with Fade In */}
-          <div className="text-left flex flex-col items-start animate-fade-in">
-            <h1 className="text-4xl font-bold text-white mb-4">Welcome to Chatty AI!</h1>
-            <p className="text-gray-200 mb-8">
-              Click below to start chatting with our AI assistant.
-            </p>
-  
-            {/* Sliding Get Started Button with Hover Animation */}
-            <button
-              className="relative px-6 py-3 text-white font-semibold rounded-md bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 group overflow-hidden transition-transform duration-300"
-              onClick={() => {
-                setIsLoading(true);
-                setTimeout(() => setShowChat(true), 2000); // 2-second delay for loading spinner animation
-              }}
-              disabled={isLoading} // Disable button while loading
-            >
-              <span
-                className="absolute inset-0 bg-white opacity-20 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"
-              ></span>
-              <span className="relative z-10">
-                {isLoading ? (
-                  <div className="w-6 h-6 border-4 border-t-4 border-gray-300 border-dashed rounded-full animate-spin"></div>
-                ) : (
-                  "Get Started"
-                )}
-              </span>
-            </button>
-          </div>
+        <div className="relative z-10 flex flex-col items-center justify-center w-full h-full px-4">
+          {/* Image */}
+          <img
+            src="/chatty.png"
+            alt="Chat AI Logo"
+            className="w-40 h-40 md:w-64 md:h-64 mb-6"
+          />
+
+          {/* Text */}
+          <h1 className="text-2xl md:text-4xl font-bold text-white mb-4 text-center">
+            Welcome to Chatty AI!
+          </h1>
+          <p className="text-gray-200 mb-8 max-w-md text-center">
+            Click below to start chatting with our AI assistant.
+          </p>
+
+          {/* Button */}
+          <button
+            className="relative px-6 py-3 text-white font-semibold rounded-md bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 group overflow-hidden transition-transform duration-300 w-full max-w-xs"
+            onClick={() => {
+              setIsLoading(true);
+              setTimeout(() => setShowChat(true), 2000); // 2-second delay for loading spinner animation
+            }}
+            disabled={isLoading}
+          >
+            <span className="absolute inset-0 bg-white opacity-20 transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></span>
+            <span className="relative z-10 flex justify-center items-center">
+              {isLoading ? (
+                <div className="w-6 h-6 border-4 border-t-4 border-gray-300 border-dashed rounded-full animate-spin"></div>
+              ) : (
+                "Get Started"
+              )}
+            </span>
+          </button>
         </div>
       </div>
     );
